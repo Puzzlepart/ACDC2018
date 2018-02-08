@@ -24,11 +24,7 @@
       "pageUrl": "https://acdc1806.sharepoint.com/sites/WarRoom2/Lists/Army/AllItems.aspx",
       "customActions": {
         "7e48dee1-2c76-436f-b379-57b127626ea9": {
-          "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
-          "properties": {
-            "sampleTextOne": "One item is selected in the list",
-            "sampleTextTwo": "This command is always visible."
-          }
+          "location": "ClientSideExtension.ListViewCommandSet.CommandBar"
         }
       }
     }

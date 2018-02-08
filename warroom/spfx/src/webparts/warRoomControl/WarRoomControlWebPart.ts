@@ -13,15 +13,20 @@ import { IWarRoomControlProps } from './components/IWarRoomControlProps';
 
 export interface IWarRoomControlWebPartProps {
   description: string;
+  title: string;
 }
 
 export default class WarRoomControlWebPart extends BaseClientSideWebPart<IWarRoomControlWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IWarRoomControlProps > = React.createElement(
+    const element: React.ReactElement<IWarRoomControlProps> = React.createElement(
       WarRoomControl,
       {
-        description: this.properties.description
+        title: this.properties.title,
+        displayMode: this.displayMode,
+        updateProperty: (value: string) => {
+          this.properties.title = value;
+        }
       }
     );
 

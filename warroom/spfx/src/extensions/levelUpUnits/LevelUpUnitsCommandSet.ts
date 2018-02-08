@@ -37,7 +37,6 @@ export default class LevelUpUnitsCommandSet extends BaseListViewCommandSet<ILeve
   public onListViewUpdated(event: IListViewCommandSetListViewUpdatedParameters): void {
     const levelUpCommand: Command = this.tryGetCommand('LEVEL_UP');
     if (levelUpCommand) {
-      // This command should be hidden unless exactly one row is selected.
       levelUpCommand.visible = event.selectedRows.length >= 1;
     }
   }
@@ -48,6 +47,7 @@ export default class LevelUpUnitsCommandSet extends BaseListViewCommandSet<ILeve
     switch (event.itemId) {
       case 'LEVEL_UP':
         const dialog: LevelUpDialog = new LevelUpDialog();
+        dialog.units = event.selectedRows;
         dialog.show();
         break;
       default:

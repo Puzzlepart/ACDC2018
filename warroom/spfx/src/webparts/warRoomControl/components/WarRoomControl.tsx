@@ -6,15 +6,26 @@ import {
   CompoundButton,
   IButtonProps
 } from 'office-ui-fabric-react/lib/Button';
+import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
 
 export default class WarRoomControl extends React.Component<IWarRoomControlProps, {}> {
   public render(): React.ReactElement<IWarRoomControlProps> {
     return (
       <div className={styles.warRoomControl}>
+        <WebPartTitle displayMode={this.props.displayMode}
+          title={this.props.title}
+          updateProperty={this.props.updateProperty} />
         <div className={styles.container}>
+
           <div className={styles.levelDetails}>
-            <h1>Experience Points</h1>
-            <div className={styles.experiencePoints}>1700 XP</div>
+            <div className={styles.metadata}>
+              <div className={styles.label}>Experience</div>
+              <div className={styles.value}>1700 XP</div>
+            </div>
+            <div className={styles.metadata}>
+              <div className={styles.label}>Location</div>
+              <div className={styles.value}>Vesteros</div>
+            </div>
           </div>
         </div>
       </div>

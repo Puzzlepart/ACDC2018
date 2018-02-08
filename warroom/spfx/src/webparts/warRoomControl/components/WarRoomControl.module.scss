@@ -26,6 +26,16 @@
             .experiencePoints {
                 @include ms-font-l;
             }
+            .metadata {
+                .label {
+                    color: $ms-color-themeDark;
+                    @include ms-font-xl;
+                }
+                .value {
+                    color: $ms-color-themePrimary;
+                    @include ms-font-l;
+                }
+            }
         }
     }
 }

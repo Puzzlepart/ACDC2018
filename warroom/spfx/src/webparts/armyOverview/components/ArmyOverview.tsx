@@ -7,13 +7,12 @@ import {
   CompoundButton,
   IButtonProps
 } from 'office-ui-fabric-react/lib/Button';
-
+import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
 
 export interface IArmyOverviewState {
   units?: Array<any>;
   isLoading?: boolean;
 }
-
 
 export default class ArmyOverview extends React.Component<IArmyOverviewProps, IArmyOverviewState> {
 
@@ -30,7 +29,6 @@ export default class ArmyOverview extends React.Component<IArmyOverviewProps, IA
 
   public render(): React.ReactElement<IArmyOverviewProps> {
     let { isLoading, units } = this.state;
-    console.log("hei");
     let unitElements = this.state.units.map((unit) => {
       return (
         <div className={styles.container}>
@@ -40,10 +38,12 @@ export default class ArmyOverview extends React.Component<IArmyOverviewProps, IA
           </div>
         </div>
       );
-
     });
     return (
       <div className={styles.armyOverview}>
+        <WebPartTitle displayMode={this.props.displayMode}
+          title={this.props.title}
+          updateProperty={this.props.updateProperty} />
         {unitElements}
 
         <CompoundButton

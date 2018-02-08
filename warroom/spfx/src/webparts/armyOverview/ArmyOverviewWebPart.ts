@@ -11,9 +11,11 @@ import {
 import * as strings from 'ArmyOverviewWebPartStrings';
 import ArmyOverview from './components/ArmyOverview';
 import { IArmyOverviewProps } from './components/IArmyOverviewProps';
+import DisplayMode from '@microsoft/sp-core-library/lib/DisplayMode';
 
 export interface IArmyOverviewWebPartProps {
   description: string;
+  title: string;
 }
 
 export default class ArmyOverviewWebPart extends BaseClientSideWebPart<IArmyOverviewWebPartProps> {
@@ -22,7 +24,11 @@ export default class ArmyOverviewWebPart extends BaseClientSideWebPart<IArmyOver
     const element: React.ReactElement<IArmyOverviewProps> = React.createElement(
       ArmyOverview,
       {
-        description: this.properties.description
+        title: this.properties.title,
+        displayMode: this.displayMode,
+        updateProperty: (value: string) => {
+          this.properties.title = value;
+        }
       }
     );
 
