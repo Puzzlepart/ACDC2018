@@ -1,0 +1,13 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "warroom-spfx-client-side-solution",
+    "id": "545d82f6-1bb0-4cbe-b887-d89c9f7404ee",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/warroom-spfx.sppkg"
+  }
+}

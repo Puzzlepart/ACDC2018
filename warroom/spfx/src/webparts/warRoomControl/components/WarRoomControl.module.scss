@@ -1,0 +1,31 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+.warRoomControl {
+    .container {
+        @include ms-Grid-row;
+        .warButton {
+            @include ms-Grid-col;
+            @include ms-lg12;
+            @include ms-xl12;
+            border-radius: 50px;
+            text-align: center;
+            padding: 20px;
+            img {
+                width: 150px;
+            }
+            .label {
+                @include ms-font-xl;
+                color: $ms-color-themeDark;
+            }
+        }
+        .levelDetails {
+            @include ms-Grid-col;
+            @include ms-lg12;
+            @include ms-xl12;
+            @include ms-font-l;
+            color: $ms-color-themeDark;
+            .experiencePoints {
+                @include ms-font-l;
+            }
+        }
+    }
+}

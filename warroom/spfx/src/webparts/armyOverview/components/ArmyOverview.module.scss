@@ -1,0 +1,23 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+.armyOverview {
+    .container {
+        .unit {
+            padding: 15px;
+            @include ms-Grid-row;
+            .icon {
+                @include ms-Grid-col;
+                @include ms-lg3;
+                @include ms-xl3;
+                img {
+                    width: 65px;
+                }
+            }
+            .details {
+                @include ms-font-xl;
+                @include ms-Grid-col;
+                @include ms-lg9;
+                @include ms-xl9;
+            }
+        }
+    }
+}

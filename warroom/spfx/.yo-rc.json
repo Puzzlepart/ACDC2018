@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.4.0",
+    "libraryName": "warroom-spfx",
+    "libraryId": "545d82f6-1bb0-4cbe-b887-d89c9f7404ee",
+    "environment": "spo"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "army-overview-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/armyOverview/ArmyOverviewWebPart.js",
+          "manifest": "./src/webparts/armyOverview/ArmyOverviewWebPart.manifest.json"
+        }
+      ]
+    },
+    "war-room-control-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/warRoomControl/WarRoomControlWebPart.js",
+          "manifest": "./src/webparts/warRoomControl/WarRoomControlWebPart.manifest.json"
+        }
+      ]
+    },
+    "level-up-units-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/levelUpUnits/LevelUpUnitsCommandSet.js",
+          "manifest": "./src/extensions/levelUpUnits/LevelUpUnitsCommandSet.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ArmyOverviewWebPartStrings": "lib/webparts/armyOverview/loc/{locale}.js",
+    "WarRoomControlWebPartStrings": "lib/webparts/warRoomControl/loc/{locale}.js",
+    "LevelUpUnitsCommandSetStrings": "lib/extensions/levelUpUnits/loc/{locale}.js"
+  }
+}
