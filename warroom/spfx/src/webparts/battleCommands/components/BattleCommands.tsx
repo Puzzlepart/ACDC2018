@@ -13,8 +13,7 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
             primary={true}
             description='Assemble your army and go to war againt thy enemy.'
             disabled={false}
-            checked={false}
-          >
+            checked={false}>
             Go to war!
             </CompoundButton>
         </div>
