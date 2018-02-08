@@ -16,15 +16,18 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
           title={this.props.title}
           updateProperty={this.props.updateProperty} />
         <div className={styles.container}>
-
-          <div className={styles.levelDetails}>
+          <div className={styles.battleStats}>
             <div className={styles.metadata}>
               <div className={styles.label}>Experience</div>
               <div className={styles.value}>1700 XP</div>
             </div>
             <div className={styles.metadata}>
-              <div className={styles.label}>Location</div>
-              <div className={styles.value}>Vesteros</div>
+              <div className={styles.label}>Victories</div>
+              <div className={styles.value}>2</div>
+            </div>
+            <div className={styles.metadata}>
+              <div className={styles.label}>Defeats</div>
+              <div className={styles.value}>5</div>
             </div>
           </div>
         </div>

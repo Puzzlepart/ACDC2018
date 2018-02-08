@@ -4,7 +4,7 @@ import { IArmyOverviewProps } from './IArmyOverviewProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import pnp from "sp-pnp-js";
 import {
-  CompoundButton,
+  PrimaryButton,
   IButtonProps
 } from 'office-ui-fabric-react/lib/Button';
 import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
@@ -46,16 +46,17 @@ export default class ArmyOverview extends React.Component<IArmyOverviewProps, IA
           updateProperty={this.props.updateProperty} />
         {unitElements}
 
-        <CompoundButton
-          primary={true}
-          description='Go to the army list and level up your units.'
+        <PrimaryButton
+          className={styles.levelUpButton}
+          data-automation-id='level-up'
           disabled={false}
           checked={false}
           onClick={() => {
             this.navigateToList()
-          }}>
+          }}
+        >
           LEVEL UP
-        </CompoundButton>
+        </PrimaryButton>
       </div>
     );
   }

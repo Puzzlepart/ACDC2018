@@ -17,23 +17,28 @@
                 color: $ms-color-themeDark;
             }
         }
-        .levelDetails {
+        .battleStats {
             @include ms-Grid-col;
             @include ms-lg12;
             @include ms-xl12;
             @include ms-font-l;
-            color: $ms-color-themeDark;
+            background-color: $ms-color-themeDark;
+            padding: 15px;
             .experiencePoints {
                 @include ms-font-l;
             }
             .metadata {
+                padding-bottom: 10px;
                 .label {
-                    color: $ms-color-themeDark;
+                    color: white;
                     @include ms-font-xl;
+                    display: inline-block;
+                    width: 200px;
                 }
                 .value {
-                    color: $ms-color-themePrimary;
-                    @include ms-font-l;
+                    color: white;
+                    @include ms-font-xl;
+                    display: inline-block;
                 }
             }
         }
