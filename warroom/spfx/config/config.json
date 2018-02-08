@@ -25,6 +25,14 @@
           "manifest": "./src/extensions/levelUpUnits/LevelUpUnitsCommandSet.manifest.json"
         }
       ]
+    },
+    "battle-commands-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/battleCommands/BattleCommandsWebPart.js",
+          "manifest": "./src/webparts/battleCommands/BattleCommandsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -32,6 +40,7 @@
     "ControlStrings": "./node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
     "ArmyOverviewWebPartStrings": "lib/webparts/armyOverview/loc/{locale}.js",
     "WarRoomControlWebPartStrings": "lib/webparts/warRoomControl/loc/{locale}.js",
-    "LevelUpUnitsCommandSetStrings": "lib/extensions/levelUpUnits/loc/{locale}.js"
+    "LevelUpUnitsCommandSetStrings": "lib/extensions/levelUpUnits/loc/{locale}.js",
+    "BattleCommandsWebPartStrings": "lib/webparts/battleCommands/loc/{locale}.js"
   }
 }
