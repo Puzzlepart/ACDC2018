@@ -26,6 +26,14 @@
         }
       ]
     },
+    "squire-chat-control-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/squireChatControl/SquireChatControlWebPart.js",
+          "manifest": "./src/webparts/squireChatControl/SquireChatControlWebPart.manifest.json"
+        }
+      ]
+    },
     "battle-commands-web-part": {
       "components": [
         {
@@ -41,6 +49,7 @@
     "ArmyOverviewWebPartStrings": "lib/webparts/armyOverview/loc/{locale}.js",
     "WarRoomControlWebPartStrings": "lib/webparts/warRoomControl/loc/{locale}.js",
     "LevelUpUnitsCommandSetStrings": "lib/extensions/levelUpUnits/loc/{locale}.js",
+    "SquireChatControlWebPartStrings": "lib/webparts/squireChatControl/loc/{locale}.js",
     "BattleCommandsWebPartStrings": "lib/webparts/battleCommands/loc/{locale}.js"
   }
 }
