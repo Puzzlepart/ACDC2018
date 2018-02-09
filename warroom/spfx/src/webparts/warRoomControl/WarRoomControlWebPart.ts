@@ -26,7 +26,8 @@ export default class WarRoomControlWebPart extends BaseClientSideWebPart<IWarRoo
         displayMode: this.displayMode,
         updateProperty: (value: string) => {
           this.properties.title = value;
-        }
+        },
+        context: this.context
       }
     );
 

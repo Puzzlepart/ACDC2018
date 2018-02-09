@@ -98,7 +98,7 @@ export default class LevelUpDialog extends BaseDialog {
             units={this.units}
             submit={this._submit}
         />, this.domElement);
-        this._submit
+        this._submit;
     }
 
     public getConfig(): IDialogConfiguration {
