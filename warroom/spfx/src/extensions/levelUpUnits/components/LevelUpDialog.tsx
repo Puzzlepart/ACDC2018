@@ -37,7 +37,7 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
     }
     public render(): JSX.Element {
         return <DialogContent
-            title={(this.state.isLoading) ? "Leveling up" : "Units grow in strength!"}
+            title={(this.state.isLoading) ? "Leveling up" : "Boom! Your units gain strength!"}
             subText={this.props.message}
             onDismiss={this.props.close}
             showCloseButton={false}
@@ -59,8 +59,8 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
             let nextLevel = +unit.getValueByName('UnitLevel') + 1;
             promises.push(list.items.getById(unit.getValueByName('ID')).update({
                 UnitLevel: nextLevel
-            }))
-        })
+            }));
+        });
         let result = await this.runPromisesInSequence(promises);
         setTimeout(() => {
             this.setState({ isLoading: false })

@@ -10,6 +10,7 @@ import {
 import * as strings from 'BattleCommandsWebPartStrings';
 import BattleCommands from './components/BattleCommands';
 import { IBattleCommandsProps } from './components/IBattleCommandsProps';
+import pnp from "sp-pnp-js";
 
 export interface IBattleCommandsWebPartProps {
   description: string;
@@ -18,14 +19,21 @@ export interface IBattleCommandsWebPartProps {
 export default class BattleCommandsWebPart extends BaseClientSideWebPart<IBattleCommandsWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IBattleCommandsProps > = React.createElement(
+    const element: React.ReactElement<IBattleCommandsProps> = React.createElement(
       BattleCommands,
       {
-        description: this.properties.description
+        context: this.context,
       }
     );
-
+    console.log(this.context.pageContext.legacyPageContext.groupId);
     ReactDom.render(element, this.domElement);
+  }
+  public onInit(): Promise<void> {
+    return super.onInit().then(_ => {
+      pnp.setup({
+        spfxContext: this.context
+      });
+    });
   }
 
   protected get dataVersion(): Version {

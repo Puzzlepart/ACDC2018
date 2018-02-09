@@ -34,7 +34,7 @@ export default class ArmyOverview extends React.Component<IArmyOverviewProps, IA
         <div className={styles.container}>
           <div className={styles.unit}>
             <div className={styles.icon}> <img src={this.getUnitImg(unit.Title)} /></div>
-            <div className={styles.details}>{unit.Title} x {unit.Units.length}</div>
+            <div className={styles.details}>{unit.Units.length} x {unit.Title}</div>
           </div>
         </div>
       );
