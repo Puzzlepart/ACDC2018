@@ -32,6 +32,7 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
       battleStats: {
         XP: 0,
         gold: 0,
+        battlesWon: 0,
       },
     };
   }
@@ -56,7 +57,7 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
             </div>
             <div className={styles.metadata}>
               <div className={styles.label}><Icon iconName='Trophy' />  Victories</div>
-              <div className={styles.value}></div>
+              <div className={styles.value}>{this.state.battleStats.battlesWon}</div>
             </div>
             <div className={styles.metadata}>
               <div className={styles.label}><Icon iconName='ErrorBadge' />  Defeats</div>
@@ -75,6 +76,7 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
         battleStats: {
           XP: response.techmikael_GenericSchema["ValueInteger00"],
           gold: response.techmikael_GenericSchema["ValueInteger01"],
+          battlesWon: response.techmikael_GenericSchema["ValueInteger02"],
         }
       });
     } catch (error) {

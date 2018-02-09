@@ -48,6 +48,7 @@ export default class LevelUpUnitsCommandSet extends BaseListViewCommandSet<ILeve
       case 'LEVEL_UP':
         const dialog: LevelUpDialog = new LevelUpDialog();
         dialog.units = event.selectedRows;
+        dialog.context = this.context;
         dialog.show();
         break;
       default:
