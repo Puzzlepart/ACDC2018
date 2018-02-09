@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2017/05/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.20.1711.0, Culture=neutral, PublicKeyToken=3751622786b357c2" />
+  <pnp:Templates ID="CONTAINER-FLOWDEMO">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-FLOWDEMO" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
+      <pnp:CustomActions>
+        <pnp:WebCustomActions>
+          <pnp:CustomAction Name="spfx-react-app-customizer-footer" Description="Custom action for Application Customizer Footer" Location="ClientSideExtension.ApplicationCustomizer" Title="spfx-react-app-customizer-footer" Sequence="0" Rights="" RegistrationType="None" ClientSideComponentId="7011e9f6-284e-4b30-b37a-963c9daf880c" ClientSideComponentProperties="{&quot;testMessage&quot;:&quot;Regions&quot;}" />
+        </pnp:WebCustomActions>
+      </pnp:CustomActions>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
