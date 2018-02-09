@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@microsoft/decorators": "~1.4.0",
+    "@microsoft/sp-client-base": "~1.0.0",
     "@microsoft/sp-core-library": "~1.4.0",
     "@microsoft/sp-dialog": "~1.4.0",
     "@microsoft/sp-listview-extensibility": "~1.4.0",
@@ -24,7 +25,8 @@
     "@types/webpack-env": ">=1.12.1 <1.14.0",
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "sp-pnp-js": "^3.0.4"
+    "sp-pnp-js": "^3.0.4",
+    "swagger-client": "^2.1.23"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "~1.4.0",
