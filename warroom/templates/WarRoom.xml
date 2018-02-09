@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2017/05/ProvisioningSchema">
   <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.21.1712.2, Culture=neutral, PublicKeyToken=5e633289e95c321a" />
-  <pnp:Templates ID="CONTAINER-TEMPLATE-C2A5AF1F7DCE43F28DE056A0062AE539">
-    <pnp:ProvisioningTemplate ID="TEMPLATE-C2A5AF1F7DCE43F28DE056A0062AE539" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
+  <pnp:Templates ID="CONTAINER-TEMPLATE-45345E8BD8F44D658F69BC19ECA6112E">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-45345E8BD8F44D658F69BC19ECA6112E" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
       <pnp:WebSettings RequestAccessEmail="someone@example.com" NoCrawl="false" WelcomePage="SitePages/Home.aspx" SiteLogo="{site}/_api/GroupService/GetGroupImage?id='55272d9c-dbae-4878-89ab-a1d1394ed89a'&amp;hash=636537652436224155" AlternateCSS="" MasterPageUrl="{masterpagecatalog}/seattle.master" CustomMasterPageUrl="{masterpagecatalog}/seattle.master" />
       <pnp:RegionalSettings AdjustHijriDays="0" AlternateCalendarType="None" CalendarType="Gregorian" Collation="9" FirstDayOfWeek="Monday" FirstWeekOfYear="0" LocaleId="1044" ShowWeeks="false" Time24="true" TimeZone="13" WorkDayEndHour="5:00PM" WorkDays="62" WorkDayStartHour="8:00AM" />
       <pnp:PropertyBagEntries>
+        <pnp:PropertyBagEntry Key="ThemePrimary" Value="#407855" Overwrite="false" Indexed="true" />
         <pnp:PropertyBagEntry Key="SiteCollectionGroupId65fcfaa5-204b-404e-a8d0-39e622f625ca" Value="8e319bcc-4c1d-4ef0-a596-b1054e6fd785" Overwrite="false" />
       </pnp:PropertyBagEntries>
       <pnp:Security>
@@ -186,14 +187,16 @@
           <pnp:CustomAction Name="Level Up List Command" Description="" Location="ClientSideExtension.ListViewCommandSet.CommandBar" Title="Level Up List Command" Sequence="0" Rights="" RegistrationId="100" RegistrationType="List" ClientSideComponentId="7e48dee1-2c76-436f-b379-57b127626ea9" ClientSideComponentProperties="" />
         </pnp:WebCustomActions>
       </pnp:CustomActions>
+      <pnp:ComposedLook Name="" ColorFile="" FontFile="" BackgroundFile="" Version="0" />
       <pnp:ClientSidePages>
         <pnp:ClientSidePage PageName="Home.aspx" PromoteAsNewsArticle="false" Overwrite="false">
           <pnp:Sections>
             <pnp:Section Order="1" Type="TwoColumnLeft">
               <pnp:Controls>
                 <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;squireChatControl&quot;,&quot;placeholderText&quot;:&quot;Your message&quot;,&quot;title&quot;:&quot;Chat&quot;,&quot;directLineSecret&quot;:&quot;UYhZ8t536jA.cwA.53w.7zezXxQeKxaJuO9IGvBkPotyMqdyxIw_PCno3Xr_r7k&quot;,&quot;titleBarBackgroundColor&quot;:&quot;3C3C3C&quot;,&quot;botMessagesBackgroundColor&quot;:&quot;f4f4f4&quot;,&quot;botMessagesForegroundColor&quot;:&quot;000000&quot;,&quot;userMessagesBackgroundColor&quot;:&quot;c7e0f4&quot;,&quot;userMessagesForegroundColor&quot;:&quot;000000&quot;}" ControlId="7caacb43-62a1-48ca-8556-3e6fc6fda251" Order="1" Column="1" />
-                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;WarRoomControl&quot;,&quot;title&quot;:&quot;Battle Statistics&quot;}" ControlId="a63bca4a-cf5c-438c-8851-93891935bf18" Order="1" Column="2" />
-                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;ArmyOverview&quot;,&quot;title&quot;:&quot;Current army&quot;}" ControlId="4ba7857e-7c35-41a0-bb09-d6b23413ed64" Order="2" Column="2" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;BattleCommands&quot;}" ControlId="ac5d8689-c3e6-44e4-ab0e-81b2fd84e9ae" Order="1" Column="2" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;WarRoomControl&quot;,&quot;title&quot;:&quot;Battle Statistics&quot;}" ControlId="a63bca4a-cf5c-438c-8851-93891935bf18" Order="2" Column="2" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;ArmyOverview&quot;,&quot;title&quot;:&quot;Current army&quot;}" ControlId="4ba7857e-7c35-41a0-bb09-d6b23413ed64" Order="3" Column="2" />
               </pnp:Controls>
             </pnp:Section>
             <pnp:Section Order="2" Type="TwoColumnLeft" />

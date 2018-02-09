@@ -27,6 +27,7 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
     console.log(this.state.isHiddenWarDialog);
     let warDialog: JSX.Element = <Dialog
       hidden={this.state.isHiddenWarDialog}
+      onDismiss={() => this.setState({ isHiddenWarDialog: true })}
       dialogContentProps={{
         type: DialogType.normal,
         title: "War has begun!",
@@ -34,7 +35,6 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
       }}
     >
       <img width="300" src={this.state.dialogImage} />
-
     </Dialog>
     return (
       <div className={styles.battleCommands}>
@@ -60,13 +60,26 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
     await this.updateGroupMetadata("String00", "500");
     let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
     let items = await graphResponse.json();
-    this.setState({ isHiddenWarDialog: false, dialogImage: "/sites/wr/SiteAssets/img/knight-going-to-war.gif", dialogDetails: "Your army marches to war..." })
+    this.setState({
+      isHiddenWarDialog: false,
+      dialogImage: "/sites/wr/SiteAssets/img/knight-going-to-war.gif",
+      dialogDetails: "Your army marches to war..."
+    });
     setTimeout(() => {
-      this.setState({ dialogImage: "/sites/wr/SiteAssets/img/knight-attacking-enemy.gif", dialogDetails: "Your army is attacking the opponents base!" })
+      this.setState({
+        dialogImage: "/sites/wr/SiteAssets/img/knight-attacking-enemy.gif",
+        dialogDetails: "Your army is attacking the opponents base!"
+      })
       setTimeout(() => {
-        this.setState({ isHiddenWarDialog: true })
-      }, 6000)
-    }, 6000)
+        this.setState({
+          dialogImage: "/sites/wr/SiteAssets/img/trophy.png",
+          dialogDetails: "Victory! Your army has won the battle! +500 XP. +250 gold."
+        });
+        setTimeout(() => {
+          console.log("Victory")
+        }, 6000);
+      }, 6000);
+    }, 6000);
     console.log(items.techmikael_GenericSchema["ValueString00"]);
   }
   private async updateGroupMetadata(schemaKey: string, value: any): Promise<boolean> {
