@@ -29,7 +29,7 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
             </div>
             <div className={styles.metadata}>
               <div className={styles.label}><Icon iconName='6PointStar' /> Experience</div>
-              <div className={styles.value}>1700 XP</div>
+              <div className={styles.value}>1700</div>
             </div>
             <div className={styles.metadata}>
               <div className={styles.label}><Icon iconName='Trophy' /> Victories</div>

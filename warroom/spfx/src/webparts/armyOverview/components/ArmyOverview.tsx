@@ -9,6 +9,8 @@ import {
 } from 'office-ui-fabric-react/lib/Button';
 import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
 
+import { GraphHttpClient, GraphHttpClientResponse, HttpClient, IHttpClientOptions } from '@microsoft/sp-http';
+
 export interface IArmyOverviewState {
   units?: Array<any>;
   isLoading?: boolean;
