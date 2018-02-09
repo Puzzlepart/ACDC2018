@@ -41,6 +41,14 @@
           "manifest": "./src/webparts/battleCommands/BattleCommandsWebPart.manifest.json"
         }
       ]
+    },
+    "battle-map-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/battleMap/BattleMapWebPart.js",
+          "manifest": "./src/webparts/battleMap/BattleMapWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -50,6 +58,7 @@
     "WarRoomControlWebPartStrings": "lib/webparts/warRoomControl/loc/{locale}.js",
     "LevelUpUnitsCommandSetStrings": "lib/extensions/levelUpUnits/loc/{locale}.js",
     "SquireChatControlWebPartStrings": "lib/webparts/squireChatControl/loc/{locale}.js",
-    "BattleCommandsWebPartStrings": "lib/webparts/battleCommands/loc/{locale}.js"
+    "BattleCommandsWebPartStrings": "lib/webparts/battleCommands/loc/{locale}.js",
+    "BattleMapWebPartStrings": "lib/webparts/battleMap/loc/{locale}.js"
   }
 }
