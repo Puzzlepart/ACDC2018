@@ -51,7 +51,7 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
             </div>
         });
         return <DialogContent
-            title={(this.state.isLoading) ? "Leveling up" : "Your units gain strength!"}
+            title={(this.state.isLoading) ? "Leveling up" : ((this.state.enoughXp) ? "Your units gain strength!" : "Not enough Experience Points!")}
             subText={this.props.message}
             onDismiss={this.props.close}
             showCloseButton={false}
@@ -64,12 +64,12 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
                             {unitsUpdated}
                         </div> :
                         <div className={styles.body}>
-                            <div className={styles.iconContainer}>Not enough Experience Point. Win battles to get experience points!</div>
-                            {unitsUpdated}
+                            <div className={styles.iconContainer}>Come back after you have won battles!</div>
+
                         </div>}
 
                     <DialogFooter>
-                        <Button text='Nice!' title='Nice!' onClick={this.props.close} />
+                        <Button text={(this.state.enoughXp) ? "Nice!" : "That sucks.."} onClick={this.props.close} />
                     </DialogFooter></div> : <Spinner type={SpinnerType.large} />
             }
         </DialogContent>;
@@ -84,11 +84,13 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
                 UnitLevel: nextLevel
             }));
         });
-        let result = await this.runPromisesInSequence(promises);
-        console.log(result)
+        await this.updateWarGroupProperties();
+        if (this.state.enoughXp) {
+            await this.runPromisesInSequence(promises);
+        }
         setTimeout(() => {
             this.setState({ isLoading: false })
-        }, 5000);
+        }, 3000);
     }
 
 
@@ -102,7 +104,7 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
     private async updateWarGroupProperties() {
         let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
         let response = await graphResponse.json();
-        let requiredXp = this.props.units.length + 100;
+        let requiredXp = this.props.units.length * 100;
         let availableXp = +response.techmikael_GenericSchema["ValueInteger00"];
         if (requiredXp < availableXp) {
             await this.updateGroupMetadata("Integer00", availableXp - requiredXp);
