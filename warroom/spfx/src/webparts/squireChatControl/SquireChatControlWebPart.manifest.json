@@ -17,14 +17,14 @@
         "default": "Other"
       },
       "title": {
-        "default": "squireChatControl"
+        "default": "SquireChatControl"
       },
       "description": {
         "default": "Chat with Podrick Payne, your squire"
       },
       "officeFabricIconFontName": "Page",
       "properties": {
-        "description": "squireChatControl",
+        "description": "SquireChatControl",
         "placeholderText": "Your message",
         "title": "Chat",
         "directLineSecret": "UYhZ8t536jA.cwA.53w.7zezXxQeKxaJuO9IGvBkPotyMqdyxIw_PCno3Xr_r7k",
