@@ -5,6 +5,11 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import { CompoundButton } from 'office-ui-fabric-react';
 import { GraphHttpClient, GraphHttpClientResponse, HttpClient, IHttpClientOptions } from '@microsoft/sp-http';
 import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog';
+
+import {
+  ProgressIndicator
+} from 'office-ui-fabric-react/lib/ProgressIndicator';
+import { MSGraph, IGroupData, MetadataHelp, IGraphMetadata, DataType } from '../../../services';
 import pnp from "sp-pnp-js";
 
 
@@ -12,6 +17,7 @@ export interface IBattleCommandsState {
   isHiddenWarDialog?: boolean;
   dialogImage?: string;
   dialogDetails?: string;
+  battlePercentComplete?: number;
 }
 
 export interface IBattleRoomProperties {
@@ -40,10 +46,13 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
       onDismiss={() => window.location.href = window.location.href}
       dialogContentProps={{
         type: DialogType.normal,
-        title: "Battle Report",
-        subText: this.state.dialogDetails
+        title: "Battle Report"
       }}>
       <img width="250" src={this.state.dialogImage} />
+      <ProgressIndicator
+        label={this.state.dialogDetails}
+        percentComplete={this.state.battlePercentComplete}
+      />
     </Dialog>
     return (
       <div className={styles.battleCommands}>
@@ -70,17 +79,20 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
     this.setState({
       isHiddenWarDialog: false,
       dialogImage: "/sites/wr/SiteAssets/img/knight-going-to-war.gif",
-      dialogDetails: "Your army marches to war..."
+      dialogDetails: "Your army marches to war...",
+      battlePercentComplete: 0.25
     });
     setTimeout(() => {
       this.setState({
         dialogImage: "/sites/wr/SiteAssets/img/knight-attacking-enemy.gif",
-        dialogDetails: "Your army is attacking the opponents base!"
+        dialogDetails: "Your army is attacking the opponents base!",
+        battlePercentComplete: 0.65
       })
       setTimeout(() => {
         this.setState({
           dialogImage: "/sites/wr/SiteAssets/img/trophy.png",
-          dialogDetails: "Victory! Your army has won the battle! +500 XP. +250 gold."
+          dialogDetails: "Victory! You receive 500 XP & 250 Gold.",
+          battlePercentComplete: 1
         });
         setTimeout(() => {
         }, 8000);
@@ -92,11 +104,13 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
     let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
     let response = await graphResponse.json();
 
-    let newXP = +response.techmikael_GenericSchema["ValueInteger00"] + +"500";
-    let newGold = +response.techmikael_GenericSchema["ValueInteger01"] + +"250";
-    console.log(newXP);
+    let newXP = +response.techmikael_GenericSchema["ValueInteger00"] + 500;
+    let newGold = +response.techmikael_GenericSchema["ValueInteger01"] + 250;
+    let battlesWon = +response.techmikael_GenericSchema["ValueInteger02"]++;
+    console.log(battlesWon);
     await this.updateGroupMetadata("Integer00", newXP);
     await this.updateGroupMetadata("Integer01", newGold);
+    await this.updateGroupMetadata("Integer02", battlesWon);
   }
 
   private async updateGroupMetadata(schemaKey: string, value: any): Promise<boolean> {
@@ -107,26 +121,7 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
                     "Value${schemaKey}": "${value}"
                 }
                 }`;
-    let ok = await this.Patch(this.props.context.graphHttpClient, graphUrl, payload);
+    let ok = await MSGraph.Patch(this.props.context.graphHttpClient, graphUrl, payload);
     return ok;
-  }
-
-  private async Patch(graphClient: GraphHttpClient, url: string, payload: object | string): Promise<boolean> {
-    if (typeof (payload) === "object") {
-      payload = JSON.stringify(payload);
-    }
-    let response: GraphHttpClientResponse = await graphClient.fetch(url, GraphHttpClient.configurations.v1, {
-      body: payload,
-      method: "PATCH"
-    });
-    // Check that the request was successful
-    if (response.ok) {
-      return true;
-    }
-    else {
-      // Reject with the error message
-      let error = new Error(response.statusText);
-      throw error;
-    }
   }
 }
