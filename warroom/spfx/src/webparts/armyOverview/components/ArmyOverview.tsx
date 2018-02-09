@@ -86,7 +86,7 @@ export default class ArmyOverview extends React.Component<IArmyOverviewProps, IA
 
   }
   private navigateToList() {
-    window.location.href = "/sites/WarRoom2/Lists/Army"
+    window.location.href = `${this.props.context.pageContext.web.absoluteUrl}/lists/army`;
   }
   private getUnitImg(type: string) {
     switch (type) {

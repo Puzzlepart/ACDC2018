@@ -6,6 +6,8 @@ import {
   CompoundButton,
   IButtonProps
 } from 'office-ui-fabric-react/lib/Button';
+
+import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
 
 export default class WarRoomControl extends React.Component<IWarRoomControlProps, {}> {
@@ -18,15 +20,23 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
         <div className={styles.container}>
           <div className={styles.battleStats}>
             <div className={styles.metadata}>
-              <div className={styles.label}>Experience</div>
+              <div className={styles.label}><Icon iconName='Heart' /> Level</div>
+              <div className={styles.value}>10</div>
+            </div>
+            <div className={styles.metadata}>
+              <div className={styles.label}><Icon iconName='Savings' /> Gold</div>
+              <div className={styles.value}>2300</div>
+            </div>
+            <div className={styles.metadata}>
+              <div className={styles.label}><Icon iconName='6PointStar' /> Experience</div>
               <div className={styles.value}>1700 XP</div>
             </div>
             <div className={styles.metadata}>
-              <div className={styles.label}>Victories</div>
+              <div className={styles.label}><Icon iconName='Trophy' /> Victories</div>
               <div className={styles.value}>2</div>
             </div>
             <div className={styles.metadata}>
-              <div className={styles.label}>Defeats</div>
+              <div className={styles.label}><Icon iconName='ErrorBadge' /> Defeats</div>
               <div className={styles.value}>5</div>
             </div>
           </div>

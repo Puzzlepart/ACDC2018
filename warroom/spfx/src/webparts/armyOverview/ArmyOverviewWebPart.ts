@@ -28,7 +28,8 @@ export default class ArmyOverviewWebPart extends BaseClientSideWebPart<IArmyOver
         displayMode: this.displayMode,
         updateProperty: (value: string) => {
           this.properties.title = value;
-        }
+        },
+        context: this.context
       }
     );
 

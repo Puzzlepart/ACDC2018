@@ -36,15 +36,24 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
 
     }
     public render(): JSX.Element {
+        let unitsUpdated = this.props.units.map((unit) => {
+            return <div className={styles.metadata}>
+                <div className={styles.label}>{unit.getValueByName('UnitType')}</div>
+                <div className={styles.value}>{unit.getValueByName('UnitLevel')} => {+unit.getValueByName('UnitLevel') + 1}</div>
+            </div>
+        });
         return <DialogContent
-            title={(this.state.isLoading) ? "Leveling up" : "Boom! Your units gain strength!"}
+            title={(this.state.isLoading) ? "Leveling up" : "Your units gain strength!"}
             subText={this.props.message}
             onDismiss={this.props.close}
             showCloseButton={false}
             className={styles.levelUpDialog}>
             {(!this.state.isLoading) ?
                 <div className={styles.container}>
-                    <div className={styles.body}><img className={styles.icon} src="/sites/wr/SiteAssets/img/level-up.png" /></div>
+                    <div className={styles.body}>
+                        <div className={styles.iconContainer}><img className={styles.icon} src="/sites/wr/SiteAssets/img/level-up.png" /></div>
+                        {unitsUpdated}
+                    </div>
                     <DialogFooter>
                         <Button text='Nice!' title='Nice!' onClick={this.props.close} />
                     </DialogFooter></div> : <Spinner type={SpinnerType.large} />
@@ -62,6 +71,7 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
             }));
         });
         let result = await this.runPromisesInSequence(promises);
+        console.log(result)
         setTimeout(() => {
             this.setState({ isLoading: false })
         }, 5000);

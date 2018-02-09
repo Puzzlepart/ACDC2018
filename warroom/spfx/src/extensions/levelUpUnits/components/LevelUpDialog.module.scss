@@ -2,8 +2,23 @@
 .levelUpDialog {
     .container {
         .body {
-            .icon {
-                width: 200px;
+            .iconContainer {
+                text-align: center;
+                .icon {
+                    width: 100px;
+                }
+            }
+            .metadata {
+                padding-bottom: 10px;
+                .label {
+                    @include ms-font-l;
+                    display: inline-block;
+                    width: 200px;
+                }
+                .value {
+                    @include ms-font-l;
+                    display: inline-block;
+                }
             }
         }
     }
