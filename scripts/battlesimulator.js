@@ -1,0 +1,4 @@
+
+function simulateBattle(playerXP, foeXP) {
+
+}
