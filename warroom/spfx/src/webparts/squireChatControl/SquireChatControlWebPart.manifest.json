@@ -3,24 +3,37 @@
   "id": "7caacb43-62a1-48ca-8556-3e6fc6fda251",
   "alias": "SquireChatControlWebPart",
   "componentType": "WebPart",
-
   // The "*" signifies that the version should be taken from the package.json
   "version": "*",
   "manifestVersion": 2,
-
   // If true, the component can only be installed on sites where Custom Script is allowed.
   // Components that allow authors to embed arbitrary script code should set this to true.
   // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
   "requiresCustomScript": false,
-
-  "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
-    "group": { "default": "Other" },
-    "title": { "default": "squireChatControl" },
-    "description": { "default": "Chat with Podrick Payne, your squire" },
-    "officeFabricIconFontName": "Page",
-    "properties": {
-      "description": "squireChatControl"
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
+      "group": {
+        "default": "Other"
+      },
+      "title": {
+        "default": "squireChatControl"
+      },
+      "description": {
+        "default": "Chat with Podrick Payne, your squire"
+      },
+      "officeFabricIconFontName": "Page",
+      "properties": {
+        "description": "squireChatControl",
+        "placeholderText": "Your message",
+        "title": "Chat",
+        "directLineSecret": "UYhZ8t536jA.cwA.53w.7zezXxQeKxaJuO9IGvBkPotyMqdyxIw_PCno3Xr_r7k",
+        "titleBarBackgroundColor": "3C3C3C",
+        "botMessagesBackgroundColor": "f4f4f4",
+        "botMessagesForegroundColor": "000000",
+        "userMessagesBackgroundColor": "c7e0f4",
+        "userMessagesForegroundColor": "000000"
+      }
     }
-  }]
+  ]
 }
