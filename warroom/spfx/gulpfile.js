@@ -23,9 +23,14 @@ pnp.setup({
 
 build.task('deleteAppPkg', {
     execute: (config) => {
+        console.log("Running delete function");
         return new Promise((resolve, reject) => {
             let filename = packageSolution.paths.zippedPackage;
             filename = filename.split('/').pop();
+            console.log(environment.tenant);
+            console.log(environment.tenant);
+            console.log(environment.catalogSite);
+
             new Web(`https://${environment.tenant}.sharepoint.com/${environment.catalogSite}`).getFileByServerRelativeUrl(`/${environment.catalogSite}/AppCatalog/${filename}`).delete()
                 .then(data => {
                     resolve();

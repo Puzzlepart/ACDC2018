@@ -1,7 +1,7 @@
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
 .armyOverview {
     .container {
-        background-color: $ms-color-themeDark;
+        background-color: $ms-color-themeLight;
         margin-bottom: 10px;
         .unit {
             padding: 15px;
@@ -19,7 +19,7 @@
                 @include ms-Grid-col;
                 @include ms-lg9;
                 @include ms-xl9;
-                color: white;
+                color: $ms-color-themeDark;
                 line-height: 3;
             }
         }

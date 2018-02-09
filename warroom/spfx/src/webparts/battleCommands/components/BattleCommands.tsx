@@ -14,27 +14,36 @@ export interface IBattleCommandsState {
   dialogDetails?: string;
 }
 
+export interface IBattleRoomProperties {
+  XP: number;
+  gold: number;
+  level?: number;
+  battlesWon?: number;
+  battlesLost?: number;
+}
+
 export default class BattleCommands extends React.Component<IBattleCommandsProps, IBattleCommandsState> {
   constructor(props: IBattleCommandsProps, state: IBattleCommandsState) {
     super(props);
     this.state = {
       isHiddenWarDialog: true,
       dialogImage: "",
-      dialogDetails: ""
+      dialogDetails: "",
+
     };
   }
+
   public render(): React.ReactElement<IBattleCommandsProps> {
     console.log(this.state.isHiddenWarDialog);
     let warDialog: JSX.Element = <Dialog
       hidden={this.state.isHiddenWarDialog}
-      onDismiss={() => this.setState({ isHiddenWarDialog: true })}
+      onDismiss={() => window.location.href = window.location.href}
       dialogContentProps={{
         type: DialogType.normal,
-        title: "War has begun!",
+        title: "Battle Report",
         subText: this.state.dialogDetails
-      }}
-    >
-      <img width="300" src={this.state.dialogImage} />
+      }}>
+      <img width="250" src={this.state.dialogImage} />
     </Dialog>
     return (
       <div className={styles.battleCommands}>
@@ -57,9 +66,7 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
   }
 
   private async goToWar() {
-    await this.updateGroupMetadata("String00", "500");
-    let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
-    let items = await graphResponse.json();
+    await this.updateWarGroupProperties();
     this.setState({
       isHiddenWarDialog: false,
       dialogImage: "/sites/wr/SiteAssets/img/knight-going-to-war.gif",
@@ -76,12 +83,22 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
           dialogDetails: "Victory! Your army has won the battle! +500 XP. +250 gold."
         });
         setTimeout(() => {
-          console.log("Victory")
-        }, 6000);
-      }, 6000);
-    }, 6000);
-    console.log(items.techmikael_GenericSchema["ValueString00"]);
+        }, 8000);
+      }, 8000);
+    }, 8000);
   }
+
+  private async updateWarGroupProperties() {
+    let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
+    let response = await graphResponse.json();
+
+    let newXP = +response.techmikael_GenericSchema["ValueInteger00"] + +"500";
+    let newGold = +response.techmikael_GenericSchema["ValueInteger01"] + +"250";
+    console.log(newXP);
+    await this.updateGroupMetadata("Integer00", newXP);
+    await this.updateGroupMetadata("Integer01", newGold);
+  }
+
   private async updateGroupMetadata(schemaKey: string, value: any): Promise<boolean> {
     let groupId = this.props.context.pageContext.legacyPageContext.groupId;
     let graphUrl = `v1.0/groups/${groupId}`;

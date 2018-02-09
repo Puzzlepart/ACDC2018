@@ -9,8 +9,35 @@ import {
 
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
+import { GraphHttpClient, GraphHttpClientResponse, HttpClient, IHttpClientOptions } from '@microsoft/sp-http';
 
-export default class WarRoomControl extends React.Component<IWarRoomControlProps, {}> {
+export interface IBattleStats {
+  XP: number;
+  gold: number;
+  level?: number;
+  battlesWon?: number;
+  battlesLost?: number;
+}
+
+export interface IWarRoomControlState {
+  battleStats?: IBattleStats;
+}
+
+
+
+export default class WarRoomControl extends React.Component<IWarRoomControlProps, IWarRoomControlState> {
+  constructor(props: IWarRoomControlProps, state: IWarRoomControlState) {
+    super(props);
+    this.state = {
+      battleStats: {
+        XP: 0,
+        gold: 0,
+      },
+    };
+  }
+  public async componentDidMount() {
+    await this.fetchData();
+  }
   public render(): React.ReactElement<IWarRoomControlProps> {
     return (
       <div className={styles.warRoomControl}>
@@ -20,28 +47,39 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
         <div className={styles.container}>
           <div className={styles.battleStats}>
             <div className={styles.metadata}>
-              <div className={styles.label}><Icon iconName='Heart' /> Level</div>
-              <div className={styles.value}>10</div>
+              <div className={styles.label}><Icon iconName='Savings' />  Gold</div>
+              <div className={styles.value}>{this.state.battleStats.gold}</div>
             </div>
             <div className={styles.metadata}>
-              <div className={styles.label}><Icon iconName='Savings' /> Gold</div>
-              <div className={styles.value}>2300</div>
+              <div className={styles.label}><Icon iconName='ReadingMode' />  Experience</div>
+              <div className={styles.value}>{this.state.battleStats.XP}</div>
             </div>
             <div className={styles.metadata}>
-              <div className={styles.label}><Icon iconName='6PointStar' /> Experience</div>
-              <div className={styles.value}>1700</div>
+              <div className={styles.label}><Icon iconName='Trophy' />  Victories</div>
+              <div className={styles.value}></div>
             </div>
             <div className={styles.metadata}>
-              <div className={styles.label}><Icon iconName='Trophy' /> Victories</div>
-              <div className={styles.value}>2</div>
-            </div>
-            <div className={styles.metadata}>
-              <div className={styles.label}><Icon iconName='ErrorBadge' /> Defeats</div>
-              <div className={styles.value}>5</div>
+              <div className={styles.label}><Icon iconName='ErrorBadge' />  Defeats</div>
+              <div className={styles.value}></div>
             </div>
           </div>
         </div>
       </div>
     );
+  }
+  private async fetchData() {
+    try {
+      let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
+      let response = await graphResponse.json();
+      this.setState({
+        battleStats: {
+          XP: response.techmikael_GenericSchema["ValueInteger00"],
+          gold: response.techmikael_GenericSchema["ValueInteger01"],
+        }
+      });
+    } catch (error) {
+      throw error;
+    }
+
   }
 }
