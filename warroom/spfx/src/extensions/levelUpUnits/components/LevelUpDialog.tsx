@@ -105,9 +105,9 @@ class LevelUpDialogContent extends React.Component<ILevelUpDialogContentProps, I
         let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
         let response = await graphResponse.json();
         let requiredXp = this.props.units.length * 100;
-        let availableXp = +response.techmikael_GenericSchema["ValueInteger00"];
+        let availableXp = +response.techmikael_GenericSchema["ValueString05"];
         if (requiredXp < availableXp) {
-            await this.updateGroupMetadata("Integer00", availableXp - requiredXp);
+            await this.updateGroupMetadata("Integer05", availableXp - requiredXp); 
             this.setState({ enoughXp: true })
         };
     }
