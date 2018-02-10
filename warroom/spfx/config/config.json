@@ -50,11 +50,11 @@
         }
       ]
     },
-    "battle-portfolio-web-part": {
+    "footer-application-customizer": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/battlePortfolio/BattlePortfolioWebPart.js",
-          "manifest": "./src/webparts/battlePortfolio/BattlePortfolioWebPart.manifest.json"
+          "entrypoint": "./lib/extensions/footer/FooterApplicationCustomizer.js",
+          "manifest": "./src/extensions/footer/FooterApplicationCustomizer.manifest.json"
         }
       ]
     }
@@ -68,6 +68,6 @@
     "SquireChatControlWebPartStrings": "lib/webparts/squireChatControl/loc/{locale}.js",
     "BattleCommandsWebPartStrings": "lib/webparts/battleCommands/loc/{locale}.js",
     "BattleMapWebPartStrings": "lib/webparts/battleMap/loc/{locale}.js",
-    "BattlePortfolioWebPartStrings": "lib/webparts/battlePortfolio/loc/{locale}.js"
+    "FooterApplicationCustomizerStrings": "lib/extensions/footer/loc/{locale}.js"
   }
 }
