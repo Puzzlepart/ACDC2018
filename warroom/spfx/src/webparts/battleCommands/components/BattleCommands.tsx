@@ -78,6 +78,7 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
   }
 
   private async goToWar() {
+    await this.updateBattleList();
     await this.updateWarGroupProperties();
     this.setState({
       isHiddenWarDialog: false,
@@ -101,6 +102,21 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
         }, 8000);
       }, 8000);
     }, 8000);
+  }
+
+  private async updateBattleList() {
+    let BattleList = pnp.sp.web.lists.getByTitle("Battles");
+    if (BattleList) {
+      let x = Math.floor(Math.random() * 3000);
+      let y = Math.floor(Math.random() * 4242);
+      pnp.sp.web.lists.getByTitle("Battles").items.add({
+        BattleLocationX: x.toString(),
+        BattleLocationY: y.toString(),
+        BattleName: "Battle of House Cloudborne",
+        BattleGoldLooted: "250",
+        BattleXPGained: "500"
+      }).then(itemAddRes => console.log(itemAddRes));
+    } else { return }
   }
 
   private async updateWarGroupProperties() {

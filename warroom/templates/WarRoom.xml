@@ -3,8 +3,10 @@
   <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.21.1712.2, Culture=neutral, PublicKeyToken=5e633289e95c321a" />
   <pnp:Templates ID="CONTAINER-TEMPLATE-45345E8BD8F44D658F69BC19ECA6112E">
     <pnp:ProvisioningTemplate ID="TEMPLATE-45345E8BD8F44D658F69BC19ECA6112E" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
-      <pnp:WebSettings RequestAccessEmail="someone@example.com" NoCrawl="false" WelcomePage="SitePages/Home.aspx" SiteLogo="{site}/_api/GroupService/GetGroupImage?id='55272d9c-dbae-4878-89ab-a1d1394ed89a'&amp;hash=636537652436224155" AlternateCSS="" MasterPageUrl="{masterpagecatalog}/seattle.master" CustomMasterPageUrl="{masterpagecatalog}/seattle.master" />
-      <pnp:RegionalSettings AdjustHijriDays="0" AlternateCalendarType="None" CalendarType="Gregorian" Collation="9" FirstDayOfWeek="Monday" FirstWeekOfYear="0" LocaleId="1044" ShowWeeks="false" Time24="true" TimeZone="13" WorkDayEndHour="5:00PM" WorkDays="62" WorkDayStartHour="8:00AM" />
+      <pnp:WebSettings RequestAccessEmail="someone@example.com" NoCrawl="false" WelcomePage="SitePages/Home.aspx" SiteLogo="{site}/_api/GroupService/GetGroupImage?id='55272d9c-dbae-4878-89ab-a1d1394ed89a'&amp;hash=636537652436224155"
+        AlternateCSS="" MasterPageUrl="{masterpagecatalog}/seattle.master" CustomMasterPageUrl="{masterpagecatalog}/seattle.master" />
+      <pnp:RegionalSettings AdjustHijriDays="0" AlternateCalendarType="None" CalendarType="Gregorian" Collation="9" FirstDayOfWeek="Monday" FirstWeekOfYear="0" LocaleId="1044" ShowWeeks="false" Time24="true"
+        TimeZone="13" WorkDayEndHour="5:00PM" WorkDays="62" WorkDayStartHour="8:00AM" />
       <pnp:PropertyBagEntries>
         <pnp:PropertyBagEntry Key="ThemePrimary" Value="#407855" Overwrite="false" Indexed="true" />
         <pnp:PropertyBagEntry Key="SiteCollectionGroupId65fcfaa5-204b-404e-a8d0-39e622f625ca" Value="8e319bcc-4c1d-4ef0-a596-b1054e6fd785" Overwrite="false" />
@@ -35,16 +37,30 @@
         </pnp:CurrentNavigation>
       </pnp:Navigation>
       <pnp:SiteFields>
-        <Field Type="Number" DisplayName="Level" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Group="War Room Columns" ID="{5bcb5d5d-58aa-427d-9a08-5758573a83a8}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="UnitLevel" Name="UnitLevel" AllowDeletion="TRUE">
+        <Field Type="Number" DisplayName="Level" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Group="War Room Columns" ID="{5bcb5d5d-58aa-427d-9a08-5758573a83a8}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}"
+          StaticName="UnitLevel" Name="UnitLevel" AllowDeletion="TRUE">
           <Default>1</Default>
         </Field>
-        <Field Type="Choice" DisplayName="Type" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" Group="War Room Columns" ID="{2c6989f8-5710-44d1-8f83-65c657c31085}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="UnitType" Name="UnitType" AllowDeletion="TRUE">
+        <Field Type="Choice" DisplayName="Type" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" Group="War Room Columns" ID="{2c6989f8-5710-44d1-8f83-65c657c31085}"
+          SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="UnitType" Name="UnitType" AllowDeletion="TRUE">
           <Default>Foot soldier</Default>
           <CHOICES>
             <CHOICE>Foot soldier</CHOICE>
             <CHOICE>Dragon</CHOICE>
           </CHOICES>
         </Field>
+        <Field Type="DateTime" DisplayName="BattleTime" Format="DateTime" Required="FALSE" Group="War Room Columns" ID="{d07c8009-2ffd-484d-943a-fea3332abd08}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}"
+          StaticName="BattleTime" Name="BattleTime" AllowDeletion="TRUE"></Field>
+        <Field Type="Text" DisplayName="BattleLocationX" Required="FALSE" Group="War Room Columns" ID="{6a81ce94-fa2f-41df-8a73-0fd843506b78}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="BattleLocationX"
+          Name="BattleLocationX" AllowDeletion="TRUE"></Field>
+        <Field Type="Text" DisplayName="BattleLocationY" Required="FALSE" Group="War Room Columns" ID="{c9609bac-20df-4631-9216-ea81c3dc934d}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="BattleLocationY"
+          Name="BattleLocationY" AllowDeletion="TRUE"></Field>
+        <Field Type="Text" DisplayName="BattleName" Required="FALSE" Group="War Room Columns" ID="{48cba702-1059-49e3-a6a9-d7317447aaeb}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="BattleName"
+          Name="BattleName" AllowDeletion="TRUE"></Field>
+        <Field Type="Text" DisplayName="BattleGoldLooted" Required="FALSE" Group="War Room Columns" ID="{a643faf8-1c27-44ee-a41b-f81279a54636}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="BattleGoldLooted"
+          Name="BattleGoldLooted" AllowDeletion="TRUE"></Field>
+        <Field Type="Text" DisplayName="BattleXPGained" Required="FALSE" Group="War Room Columns" ID="{e289f5d3-3b2d-4067-a4af-9bf990b7c4a4}" SourceID="{3af70270-807e-4031-aaed-edcf13e4b07c}" StaticName="BattleXPGained"
+          Name="BattleXPGained" AllowDeletion="TRUE"></Field>
       </pnp:SiteFields>
       <pnp:ContentTypes>
         <pnp:ContentType ID="0x0100580DEE0B194D574FB46BF73DBA2F3104" Name="Unit" Description="" Group="War Room Content Types" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
@@ -57,14 +73,50 @@
         </pnp:ContentType>
       </pnp:ContentTypes>
       <pnp:Lists>
-        <pnp:ListInstance Title="Army" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Army" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Army/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Army/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Army/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false" ReadSecurity="1" ValidationFormula="" ValidationMessage="">
+        <pnp:ListInstance Title="Battles" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Battles" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100"
+          ContentTypesEnabled="false" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Battles/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Battles/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Battles/NewForm.aspx"
+          ImageUrl="/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false" ReadSecurity="1" ValidationFormula="" ValidationMessage="">
+          <pnp:Views>
+            <View Name="{5083aeb2-a92c-409e-a6e8-899e9f7654ae}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="/sites/WarRoom4/Lists/Battles/AllItems.aspx" Level="1"
+              BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="BattleTime" />
+                <FieldRef Name="BattleLocationX" />
+                <FieldRef Name="BattleLocationY" />
+                <FieldRef Name="BattleName" />
+                <FieldRef Name="BattleGoldLooted" />
+                <FieldRef Name="BattleXPGained" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="d07c8009-2ffd-484d-943a-fea3332abd08" DisplayName="BattleTime" Name="BattleTime" />
+            <pnp:FieldRef ID="6a81ce94-fa2f-41df-8a73-0fd843506b78" DisplayName="BattleLocationX" Name="BattleLocationX" />
+            <pnp:FieldRef ID="c9609bac-20df-4631-9216-ea81c3dc934d" DisplayName="BattleLocationY" Name="BattleLocationY" />
+            <pnp:FieldRef ID="48cba702-1059-49e3-a6a9-d7317447aaeb" DisplayName="BattleName" Name="BattleName" />
+            <pnp:FieldRef ID="a643faf8-1c27-44ee-a41b-f81279a54636" DisplayName="BattleGoldLooted" Name="BattleGoldLooted" />
+            <pnp:FieldRef ID="e289f5d3-3b2d-4067-a4af-9bf990b7c4a4" DisplayName="BattleXPGained" Name="BattleXPGained" />
+          </pnp:FieldRefs>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Army" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Army" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100"
+          ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Army/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Army/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Army/NewForm.aspx"
+          ImageUrl="/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false" ReadSecurity="1" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x0100580DEE0B194D574FB46BF73DBA2F3104" Default="true" />
             <pnp:ContentTypeBinding ContentTypeID="0x01" />
             <pnp:ContentTypeBinding ContentTypeID="0x0120" />
           </pnp:ContentTypeBindings>
           <pnp:Views>
-            <View Name="{EE304402-2C40-43A3-A070-8B3A7C4CAB21}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="/sites/WarRoom4/Lists/Army/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+            <View Name="{EE304402-2C40-43A3-A070-8B3A7C4CAB21}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="/sites/WarRoom4/Lists/Army/AllItems.aspx" Level="1"
+              BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
               <Query>
                 <OrderBy>
                   <FieldRef Name="ID" />
@@ -84,13 +136,17 @@
             <pnp:FieldRef ID="2c6989f8-5710-44d1-8f83-65c657c31085" Name="UnitType" DisplayName="UnitType" />
           </pnp:FieldRefs>
         </pnp:ListInstance>
-        <pnp:ListInstance Title="Documents" Description="" DocumentTemplate="{site}/Delte dokumenter/Forms/template.dotx" TemplateType="101" Url="Delte dokumenter" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="500" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" EnableAttachments="false" ListExperience="NewExperience" DefaultDisplayFormUrl="{site}/Delte dokumenter/Forms/DispForm.aspx" DefaultEditFormUrl="{site}/Delte dokumenter/Forms/EditForm.aspx" DefaultNewFormUrl="{site}/Delte dokumenter/Forms/Upload.aspx" ImageUrl="/_layouts/15/images/itdl.png?rev=44" IsApplicationList="false" ReadSecurity="1" ValidationFormula="" ValidationMessage="">
+        <pnp:ListInstance Title="Documents" Description="" DocumentTemplate="{site}/Delte dokumenter/Forms/template.dotx" TemplateType="101" Url="Delte dokumenter" EnableVersioning="true" MinorVersionLimit="0"
+          MaxVersionLimit="500" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" EnableAttachments="false" ListExperience="NewExperience" DefaultDisplayFormUrl="{site}/Delte dokumenter/Forms/DispForm.aspx"
+          DefaultEditFormUrl="{site}/Delte dokumenter/Forms/EditForm.aspx" DefaultNewFormUrl="{site}/Delte dokumenter/Forms/Upload.aspx" ImageUrl="/_layouts/15/images/itdl.png?rev=44" IsApplicationList="false"
+          ReadSecurity="1" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x0101" Default="true" />
             <pnp:ContentTypeBinding ContentTypeID="0x0120" />
           </pnp:ContentTypeBindings>
           <pnp:Views>
-            <View Name="{1A0C1D52-87F8-4B1F-A4FE-7AF10DC75F44}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Documents" Url="/sites/WarRoom4/Delte dokumenter/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
+            <View Name="{1A0C1D52-87F8-4B1F-A4FE-7AF10DC75F44}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Documents" Url="/sites/WarRoom4/Delte dokumenter/Forms/AllItems.aspx"
+              Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
               <Query>
                 <OrderBy>
                   <FieldRef Name="FileLeafRef" />
@@ -117,12 +173,16 @@
             <pnp:FieldRef ID="3a6b296c-3f50-445c-a13f-9c679ea9dda3" Name="ComplianceAssetId" DisplayName="Compliance Asset Id" />
           </pnp:FieldRefs>
         </pnp:ListInstance>
-        <pnp:ListInstance Title="Form Templates" Description="This library contains administrator-approved form templates that were activated to this site collection." DocumentTemplate="" TemplateType="101" Url="FormServerTemplates" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" EnableAttachments="false" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/FormServerTemplates/Forms/DispForm.aspx" DefaultEditFormUrl="{site}/FormServerTemplates/Forms/EditForm.aspx" DefaultNewFormUrl="{site}/FormServerTemplates/Forms/Upload.aspx" ImageUrl="/_layouts/15/images/itdl.png?rev=44" IsApplicationList="false" ReadSecurity="1" ValidationFormula="" ValidationMessage="">
+        <pnp:ListInstance Title="Form Templates" Description="This library contains administrator-approved form templates that were activated to this site collection." DocumentTemplate="" TemplateType="101" Url="FormServerTemplates"
+          MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" EnableAttachments="false" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/FormServerTemplates/Forms/DispForm.aspx"
+          DefaultEditFormUrl="{site}/FormServerTemplates/Forms/EditForm.aspx" DefaultNewFormUrl="{site}/FormServerTemplates/Forms/Upload.aspx" ImageUrl="/_layouts/15/images/itdl.png?rev=44" IsApplicationList="false"
+          ReadSecurity="1" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x010100F8EF98760CBA4A94994F13BA881038FA" Default="true" />
           </pnp:ContentTypeBindings>
           <pnp:Views>
-            <View Name="{5A814794-A47F-4030-9D84-965EBDE5792F}" MobileView="TRUE" Type="HTML" DisplayName="All Documents" Url="/sites/WarRoom4/FormServerTemplates/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
+            <View Name="{5A814794-A47F-4030-9D84-965EBDE5792F}" MobileView="TRUE" Type="HTML" DisplayName="All Documents" Url="/sites/WarRoom4/FormServerTemplates/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x"
+              ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
               <Query>
                 <OrderBy>
                   <FieldRef Name="FileLeafRef" />
@@ -137,7 +197,8 @@
               <RowLimit Paged="TRUE">30</RowLimit>
               <JSLink>clienttemplates.js</JSLink>
             </View>
-            <View Name="{B3989B4A-FAAC-41A9-BD17-B45914FD3DC8}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="Alle skjemaer" Url="/sites/WarRoom4/FormServerTemplates/Forms/All Forms.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
+            <View Name="{B3989B4A-FAAC-41A9-BD17-B45914FD3DC8}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="Alle skjemaer" Url="/sites/WarRoom4/FormServerTemplates/Forms/All Forms.aspx"
+              Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
               <Query>
                 <GroupBy Collapse="FALSE">
                   <FieldRef Name="FormCategory" />
@@ -184,7 +245,8 @@
       </pnp:Lists>
       <pnp:CustomActions>
         <pnp:WebCustomActions>
-          <pnp:CustomAction Name="Level Up List Command" Description="" Location="ClientSideExtension.ListViewCommandSet.CommandBar" Title="Level Up List Command" Sequence="0" Rights="" RegistrationId="100" RegistrationType="List" ClientSideComponentId="7e48dee1-2c76-436f-b379-57b127626ea9" ClientSideComponentProperties="" />
+          <pnp:CustomAction Name="Level Up List Command" Description="" Location="ClientSideExtension.ListViewCommandSet.CommandBar" Title="Level Up List Command" Sequence="0" Rights="" RegistrationId="100" RegistrationType="List"
+            ClientSideComponentId="7e48dee1-2c76-436f-b379-57b127626ea9" ClientSideComponentProperties="" />
         </pnp:WebCustomActions>
       </pnp:CustomActions>
       <pnp:ComposedLook Name="" ColorFile="" FontFile="" BackgroundFile="" Version="0" />
@@ -193,16 +255,27 @@
           <pnp:Sections>
             <pnp:Section Order="1" Type="TwoColumnLeft">
               <pnp:Controls>
-                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;squireChatControl&quot;,&quot;placeholderText&quot;:&quot;Your message&quot;,&quot;title&quot;:&quot;Chat&quot;,&quot;directLineSecret&quot;:&quot;UYhZ8t536jA.cwA.53w.7zezXxQeKxaJuO9IGvBkPotyMqdyxIw_PCno3Xr_r7k&quot;,&quot;titleBarBackgroundColor&quot;:&quot;3C3C3C&quot;,&quot;botMessagesBackgroundColor&quot;:&quot;f4f4f4&quot;,&quot;botMessagesForegroundColor&quot;:&quot;000000&quot;,&quot;userMessagesBackgroundColor&quot;:&quot;c7e0f4&quot;,&quot;userMessagesForegroundColor&quot;:&quot;000000&quot;}" ControlId="7caacb43-62a1-48ca-8556-3e6fc6fda251" Order="1" Column="1" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;squireChatControl&quot;,&quot;placeholderText&quot;:&quot;Your message&quot;,&quot;title&quot;:&quot;Chat&quot;,&quot;directLineSecret&quot;:&quot;UYhZ8t536jA.cwA.53w.7zezXxQeKxaJuO9IGvBkPotyMqdyxIw_PCno3Xr_r7k&quot;,&quot;titleBarBackgroundColor&quot;:&quot;3C3C3C&quot;,&quot;botMessagesBackgroundColor&quot;:&quot;f4f4f4&quot;,&quot;botMessagesForegroundColor&quot;:&quot;000000&quot;,&quot;userMessagesBackgroundColor&quot;:&quot;c7e0f4&quot;,&quot;userMessagesForegroundColor&quot;:&quot;000000&quot;}"
+                  ControlId="7caacb43-62a1-48ca-8556-3e6fc6fda251" Order="1" Column="1" />
                 <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;BattleCommands&quot;}" ControlId="ac5d8689-c3e6-44e4-ab0e-81b2fd84e9ae" Order="1" Column="2" />
-                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;WarRoomControl&quot;,&quot;title&quot;:&quot;Battle Statistics&quot;}" ControlId="a63bca4a-cf5c-438c-8851-93891935bf18" Order="2" Column="2" />
-                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;ArmyOverview&quot;,&quot;title&quot;:&quot;Current army&quot;}" ControlId="4ba7857e-7c35-41a0-bb09-d6b23413ed64" Order="3" Column="2" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;WarRoomControl&quot;,&quot;title&quot;:&quot;Battle Statistics&quot;}" ControlId="a63bca4a-cf5c-438c-8851-93891935bf18"
+                  Order="2" Column="2" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;ArmyOverview&quot;,&quot;title&quot;:&quot;Current army&quot;}" ControlId="4ba7857e-7c35-41a0-bb09-d6b23413ed64"
+                  Order="3" Column="2" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;script&quot;:&quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;../SiteAssets/battlemap.css\&quot;&gt;\n&lt;script src=\&quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.js\&quot;&gt;&lt;/script&gt;\n&lt;div id=\&quot;wrapper\&quot;&gt;\n    &lt;div id=\&quot;mapcontainer\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;script src=\&quot;../SiteAssets/battlemap.js\&quot;&gt;&lt;/script&gt;&quot;,&quot;removePadding&quot;:false}"
+                  ControlId="3a328f0a-99c4-4b28-95ab-fe0847f657a3" Order="1" Column="1" />
               </pnp:Controls>
             </pnp:Section>
             <pnp:Section Order="2" Type="TwoColumnLeft" />
           </pnp:Sections>
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
+      <pnp:Files>
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/css/battlemap.css" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/css/squireChat.css" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/js/battlemap.js" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/img/WesterosMap.png" Overwrite="true" />
+      </pnp:Files>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
 </pnp:Provisioning>
