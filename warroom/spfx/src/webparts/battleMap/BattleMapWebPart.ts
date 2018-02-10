@@ -10,15 +10,20 @@ import {
 import * as strings from 'BattleMapWebPartStrings';
 import BattleMap from './components/BattleMap';
 import { IBattleMapProps } from './components/IBattleMapProps';
+import { SPComponentLoader } from '@microsoft/sp-loader';
 
 export interface IBattleMapWebPartProps {
   description: string;
 }
 
 export default class BattleMapWebPart extends BaseClientSideWebPart<IBattleMapWebPartProps> {
+  protected onInit(): Promise<void> {
+    SPComponentLoader.loadCss('https://unpkg.com/leaflet@1.3.1/dist/leaflet.css');
+    return super.onInit();
+  }
 
   public render(): void {
-    const element: React.ReactElement<IBattleMapProps > = React.createElement(
+    const element: React.ReactElement<IBattleMapProps> = React.createElement(
       BattleMap,
       {
         description: this.properties.description

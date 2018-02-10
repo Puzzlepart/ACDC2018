@@ -3,27 +3,39 @@ import styles from './BattleMap.module.scss';
 import { IBattleMapProps } from './IBattleMapProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { CompoundButton } from 'office-ui-fabric-react';
-import {
-  Map, Marker, MapComponent,
-  TileLayer,
-  Popup, PopupProps,
-} from "react-leaflet";
 import pnp from "sp-pnp-js";
+import {
+  ImageOverlay,
+  Map,
+  Marker,
+  MapComponent,
+  TileLayer,
+  Popup,
+  PopupProps,
+} from "react-leaflet";
+var L = require('leaflet');
 
+// delete L.Icon.Default.prototype._getIconUrl;
 
+// L.Icon.Default.mergeOptions({
+//   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+//   iconUrl: require('leaflet/dist/images/marker-icon.png'),
+//   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+// });
 
 export default class BattleMap extends React.Component<IBattleMapProps, {}> {
 
   public render(): React.ReactElement<IBattleMapProps> {
-    const position = [51.505, -0.09]
+    const position: L.LatLngExpression = [1400, 1200]
+    const center: L.LatLngExpression = [1400, 1200]
+    const mapBounds: L.LatLngBoundsExpression = [[3000, 4242]]
+    const mapUrl = "../SiteAssets/WesterosMap.png"
     return (
       <div className={styles.battleMap}>
         <div className={styles.container}>
-          <div id="map" className={styles.map}>
-            <Map zoom={13}>
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors" />
+          <div id="battlemap" className={styles.map}>
+            <Map zoom={13} crs={L.CRS.Simple} center={center}>
+              <ImageOverlay url={mapUrl} bounds={mapBounds} />
               {/* <Marker  position={position}>
                 <Popup>
                   <span>A pretty CSS3 popup.<br />Easily customizable.</span>
@@ -32,14 +44,14 @@ export default class BattleMap extends React.Component<IBattleMapProps, {}> {
             </Map>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 
-  public componentDidMount() {
-    //  this.loadMap();
+  // public componentDidMount() {
+  //   //  this.loadMap();
 
-  }
+  // }
 
 
 
