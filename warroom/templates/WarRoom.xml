@@ -262,6 +262,8 @@
                   Order="2" Column="2" />
                 <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;description&quot;:&quot;ArmyOverview&quot;,&quot;title&quot;:&quot;Current army&quot;}" ControlId="4ba7857e-7c35-41a0-bb09-d6b23413ed64"
                   Order="3" Column="2" />
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{ &quot;serverProcessedContent&quot;: {&quot;htmlStrings&quot;:{},&quot;searchablePlainTexts&quot;:{},&quot;imageSources&quot;:{},&quot;links&quot;:{}}, &quot;properties&quot;: {&quot;script&quot;:&quot;&lt;script&gt;\nalert('a');\n&lt;/script&gt;&quot;,&quot;removePadding&quot;:false}}"
+                  ControlId="3a328f0a-99c4-4b28-95ab-fe0847f657a3" Order="1" Column="1" />
               </pnp:Controls>
             </pnp:Section>
             <pnp:Section Order="2" Type="TwoColumnLeft" />
@@ -269,9 +271,10 @@
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
       <pnp:Files>
-        <pnp:File Folder="SiteAssets/css" Src="SiteAssets/css/battlemap.css" Overwrite="true" />
-        <pnp:File Folder="SiteAssets/css" Src="SiteAssets/css/squireChat.css" Overwrite="true" />
-        <pnp:File Folder="SiteAssets/css" Src="SiteAssets/js/battlemap.js" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/css/battlemap.css" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/css/squireChat.css" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/js/battlemap.js" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/" Src="SiteAssets/img/WesterosMap.png" Overwrite="true" />
       </pnp:Files>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
