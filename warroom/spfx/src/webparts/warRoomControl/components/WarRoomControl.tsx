@@ -74,9 +74,9 @@ export default class WarRoomControl extends React.Component<IWarRoomControlProps
       let response = await graphResponse.json();
       this.setState({
         battleStats: {
-          XP: response.techmikael_GenericSchema["ValueInteger00"],
-          gold: response.techmikael_GenericSchema["ValueInteger01"],
-          battlesWon: response.techmikael_GenericSchema["ValueInteger02"],
+          XP: response.techmikael_GenericSchema["ValueString05"],
+          gold: response.techmikael_GenericSchema["ValueString06"],
+          battlesWon: response.techmikael_GenericSchema["ValueString07"],
         }
       });
     } catch (error) {

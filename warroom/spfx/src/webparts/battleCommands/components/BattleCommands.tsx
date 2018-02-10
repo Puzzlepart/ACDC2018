@@ -38,6 +38,9 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
 
     };
   }
+  public async componentDidMount() {
+    await this.updateGroupMetadata("String08", "BattleRoom");
+  }
 
   public render(): React.ReactElement<IBattleCommandsProps> {
     console.log(this.state.isHiddenWarDialog);
@@ -85,7 +88,7 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
     setTimeout(() => {
       this.setState({
         dialogImage: "/sites/wr/SiteAssets/img/knight-attacking-enemy.gif",
-        dialogDetails: "Your army is attacking the opponents base!",
+        dialogDetails: "Your army is attacking the opponents town!",
         battlePercentComplete: 0.65
       })
       setTimeout(() => {
@@ -103,14 +106,13 @@ export default class BattleCommands extends React.Component<IBattleCommandsProps
   private async updateWarGroupProperties() {
     let graphResponse = await this.props.context.graphHttpClient.get(`v1.0/groups/${this.props.context.pageContext.legacyPageContext.groupId}?$select=id,title,techmikael_GenericSchema`, GraphHttpClient.configurations.v1);
     let response = await graphResponse.json();
-
-    let newXP = +response.techmikael_GenericSchema["ValueInteger00"] + 500;
-    let newGold = +response.techmikael_GenericSchema["ValueInteger01"] + 250;
-    let battlesWon = +response.techmikael_GenericSchema["ValueInteger02"]++;
+    let newXP = +response.techmikael_GenericSchema["ValueString05"] + 500;
+    let newGold = +response.techmikael_GenericSchema["ValueString06"] + 250;
+    let battlesWon = +response.techmikael_GenericSchema["ValueString07"] + 1;
     console.log(battlesWon);
-    await this.updateGroupMetadata("Integer00", newXP);
-    await this.updateGroupMetadata("Integer01", newGold);
-    await this.updateGroupMetadata("Integer02", battlesWon);
+    await this.updateGroupMetadata("String05", newXP);
+    await this.updateGroupMetadata("String06", newGold);
+    await this.updateGroupMetadata("String07", battlesWon);
   }
 
   private async updateGroupMetadata(schemaKey: string, value: any): Promise<boolean> {

@@ -20,15 +20,16 @@ export default class BattleMap extends React.Component<IBattleMapProps, {}> {
       <div className={styles.battleMap}>
         <div className={styles.container}>
           <div id="map" className={styles.map}>
-            <Map zoom={13}>
+            <Map center={[51.505, -0.09]} zoom={13}>
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors" />
-              {/* <Marker  position={position}>
+                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+              />
+              <Marker position={[51.505, -0.09]}>
                 <Popup>
                   <span>A pretty CSS3 popup.<br />Easily customizable.</span>
                 </Popup>
-              </Marker> */}
+              </Marker>
             </Map>
           </div>
         </div>
