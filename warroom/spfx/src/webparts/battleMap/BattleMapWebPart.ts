@@ -19,6 +19,7 @@ export interface IBattleMapWebPartProps {
 export default class BattleMapWebPart extends BaseClientSideWebPart<IBattleMapWebPartProps> {
   protected onInit(): Promise<void> {
     SPComponentLoader.loadCss('https://unpkg.com/leaflet@1.3.1/dist/leaflet.css');
+    SPComponentLoader.loadCss('../SiteAssets/leaflet_overrides.css');
     return super.onInit();
   }
 

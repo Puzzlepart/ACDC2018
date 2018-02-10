@@ -2,27 +2,52 @@
 // @import "~leaflet/dist/leaflet.css";
 
 
+// .leaflet-pane, 
+// .leaflet-image-layer,
+//  .leaflet-layer{
+//     position:relative;
+// }
+
+/*
+
+.leaflet-tile, 
+.leaflet-marker-icon, 
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+
+*/
+
+.leaflet-pane, 
+.leaflet-image-layer,
+ .leaflet-layer{
+    position:relative !important;
+}
+
 .battleMap {
   .container {
     max-width: 700px;
     margin: 0px auto;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden !important;
   }
+
+  .leaflet-pane, 
+.leaflet-image-layer,
+ .leaflet-layer{
+    position:relative !important;
+}
 
   .map {
-
       width: 600px;
       height: 600px;
+      overflow: hidden !important;
 
-  
-  .leaflet-container .leaflet-control-mouseposition {
-      background-color: rgba(255, 255, 255, 0.7);
-      box-shadow: 0 0 5px #bbb;
-      padding: 0 5px;
-      margin: 0;
-      color: #333;
-      font: 11px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
-  }
+      .leaflet-pane,.leaflet-image-layer,.leaflet-layer{
+          position:relative !important;
+      }
   }
 
   .row {
