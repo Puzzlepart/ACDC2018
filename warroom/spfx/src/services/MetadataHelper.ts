@@ -5,7 +5,7 @@ export class MetadataHelp {
     private static _types: string[] = [
         "String00", "String01", "String02", "String03", "String04",
         "String05", "String06", "String07", "String08", "String09",
-        "String00", "Integer01", "Integer02", "Integer03", "Integer04",
+        "Integer00", "Integer01", "Integer02", "Integer03", "Integer04",
         "Boolean00", "Boolean01", "Boolean02", "Boolean03", "Boolean04",
         "DateTime00", "DateTime01", "DateTime02", "DateTime03", "DateTime04",
         "Binary00", "Binary01", "Binary02", "Binary03", "Binary04"
@@ -60,5 +60,5 @@ export class MetadataHelp {
     public static IsClaim(claim) {
         return claim.indexOf("i:0#.f|membership|") != -1;
     }
-
+    
 }
