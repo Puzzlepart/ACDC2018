@@ -268,6 +268,11 @@
           </pnp:Sections>
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
+      <pnp:Files>
+        <pnp:File Folder="SiteAssets/css" Src="SiteAssets/css/battlemap.css" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/css" Src="SiteAssets/css/squireChat.css" Overwrite="true" />
+        <pnp:File Folder="SiteAssets/css" Src="SiteAssets/js/battlemap.js" Overwrite="true" />
+      </pnp:Files>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
 </pnp:Provisioning>
