@@ -23,7 +23,7 @@ export default class SquireChatControl extends React.Component<ISquireChatContro
   public render(): JSX.Element {
     return (
       <div className={styles.squireChatControl}>
-        <div className={styles.container}>
+        <div>
           <div className={css('ms-Grid-row ms-font-xl', styles.chatHeader)} style={{ backgroundColor: '#' + this.props.titleBarBackgroundColor }} >
             {this.props.title}
           </div>

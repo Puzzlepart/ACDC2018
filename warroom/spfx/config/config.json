@@ -49,6 +49,14 @@
           "manifest": "./src/webparts/battleMap/BattleMapWebPart.manifest.json"
         }
       ]
+    },
+    "battle-portfolio-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/battlePortfolio/BattlePortfolioWebPart.js",
+          "manifest": "./src/webparts/battlePortfolio/BattlePortfolioWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -59,6 +67,7 @@
     "LevelUpUnitsCommandSetStrings": "lib/extensions/levelUpUnits/loc/{locale}.js",
     "SquireChatControlWebPartStrings": "lib/webparts/squireChatControl/loc/{locale}.js",
     "BattleCommandsWebPartStrings": "lib/webparts/battleCommands/loc/{locale}.js",
-    "BattleMapWebPartStrings": "lib/webparts/battleMap/loc/{locale}.js"
+    "BattleMapWebPartStrings": "lib/webparts/battleMap/loc/{locale}.js",
+    "BattlePortfolioWebPartStrings": "lib/webparts/battlePortfolio/loc/{locale}.js"
   }
 }

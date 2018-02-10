@@ -9,7 +9,7 @@
   },
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://acdc1806.sharepoint.com/sites/WarRoom2/SitePages/Home.aspx",
+      "pageUrl": "https://acdc1806.sharepoint.com/sites/thewaragainsthousekimofthenorth/SitePages/Home.aspx",
       "customActions": {
         "7e48dee1-2c76-436f-b379-57b127626ea9": {
           "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
