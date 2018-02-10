@@ -1,26 +1,11 @@
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
 .battlePortfolio {
-    .container {
-        .unit {
-            margin: 15px;
-            @include ms-Grid-row;
-            background-color: $ms-color-themeLight;
-            .icon {
-                @include ms-Grid-col;
-                @include ms-lg3;
-                @include ms-xl3;
-                img {
-                    width: 65px;
-                }
-            }
-            .details {
-                @include ms-font-xl;
-                @include ms-Grid-col;
-                @include ms-lg9;
-                @include ms-xl9;
-                color: $ms-color-themeDark;
-                line-height: 3;
-            }
-        }
+    .card {
+        position: relative;
+        width: 200px;
+        margin-right: 16px;
+        margin-bottom: 12px;
+        display: inline-block;
+        vertical-align: top;
     }
 }
